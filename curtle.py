@@ -88,7 +88,8 @@ def curtle_drawing(coordinates, h, w):
     
     """
 
-    #the video portion of the turtle drawing will likely als
+    #the video portion of the turtle drawing will likely also be in here i assume atm
+    #same with the file? if not itll be in main
 
 if __name__ == '__main__':
     #inits needed 
