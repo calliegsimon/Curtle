@@ -1,0 +1,5 @@
+    pencil.penup()
+            pencil.goto(line[0])
+            pencil.pendown()
+            pencil.color(random.choice(colors))
+            canvas.update()

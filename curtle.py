@@ -108,19 +108,28 @@ def curtle_drawing(coordinates, h, w):
     canvas.tracer(0)
 
     for line in coordinates:
-        pencil.penup()
-        pencil.goto(line[0])
-        pencil.pendown()
-        pencil.color(random.choice(colors))
+        print(line)
+        if(len(line[0]) == 1):
+            print(spot)
+            pencil.penup()
+            spot.add(0)
+            #print(spot)
+        else:
+            pencil.penup()
+            pencil.goto(line[0])
+            pencil.pendown()
+            pencil.color(random.choice(colors))
         canvas.update()
+
         # start draw
         for spot in line:
             if(len(spot) == 1):
-                #print(spot)
+                print(spot)
                 pencil.penup()
                 spot.add(0)
                 #print(spot)
-            pencil.goto(spot)
+            else:
+                pencil.goto(spot)
 
     canvas.update()
     t.done()
