@@ -9,7 +9,7 @@ import cv2
 
 #from PIL import Image, ImageFilter
 import turtle as t
-
+import random
 #for future reference in reagrds to making gifs of the turtle drawing
 #https://zulko.github.io/moviepy/getting_started/videoclips.html
 
@@ -91,33 +91,40 @@ def curtle_drawing(coordinates, h, w):
 
     #the video portion of the turtle drawing will likely also be in here i assume atm
     #same with the file? if not itll be in main
+
+    colors = ["white","red", "yellow", "orange",]
     
     # make canvas
     canvas = t.Screen()
-    canvas.setup(h,w)
+    canvas.mode("world")
+    canvas.setworldcoordinates(0,0,w,h)
     canvas.bgcolor("black")
 
     # making pencil
     pencil = t.Turtle()
     pencil.speed(0)
-    #pencil.penup()
-    pencil.color("white")
-    pencil.pensize(10)
-
-    colors = []
-
-    # start draw
-    for pic in coordinates:
-        for spot in pic:
-            # if just starting
-            #print(spot)
-            if pic.index(spot) == 0:
-                pencil.goto(spot)
-                pencil.pendown()
-
-            pencil.goto(spot)
-    t.done()
+    pencil.pensize(.5)
     
+    canvas.tracer(0)
+
+    for line in coordinates:
+        pencil.penup()
+        pencil.goto(line[0])
+        pencil.pendown()
+        pencil.color(random.choice(colors))
+        canvas.update()
+        # start draw
+        for spot in line:
+            if(len(spot) == 1):
+                #print(spot)
+                pencil.penup()
+                spot.add(0)
+                #print(spot)
+            pencil.goto(spot)
+
+    canvas.update()
+    t.done()
+
 
 
 if __name__ == '__main__':
@@ -144,14 +151,13 @@ if __name__ == '__main__':
                 print(f"Image #{count}'s contours extracted")
 
                 #drawing function for image
-                if img.name == "Blind_Obsession_Ishmael.png":
-                    curtle_drawing(coords, cH, cW)
-                    print("wa")
+                curtle_drawing(coords, cH, cW)
+
                 #save the turtle img
 
                 #saving the gif of turtle drawing
 
                 #update count for sequential file formats(assuming we use this)
                 count += 1
-
+    
     
