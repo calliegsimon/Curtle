@@ -95,7 +95,7 @@ def curtle_drawing(coordinates, h, w):
     # make canvas
     canvas = t.Screen()
     canvas.setup(h,w)
-    canvas.bgcolor()
+    canvas.bgcolor("black")
 
     # making pencil
     pencil = t.Turtle()
@@ -106,6 +106,10 @@ def curtle_drawing(coordinates, h, w):
 
     colors = []
 
+    # start draw
+    for spot in coordinates:
+
+    t.done()
     
 
 
@@ -126,15 +130,21 @@ if __name__ == '__main__':
                 #process image
                 processedImg = image_processing(img)
                 print(f"Image #{count} processed")
+
                 #extract contours for image
                 #coords should be a list of coordinates returned from extract_contours
                 coords, cH, cW = extract_contours(processedImg)
                 print(f"Image #{count}'s contours extracted")
-                #drawing function for image
 
+                #drawing function for image
+                if img.name == "Blind_Obsession_Ishmael.png":
+                    curtle_drawing(coords, cH, cW)
+                    print("wa")
                 #save the turtle img
 
                 #saving the gif of turtle drawing
 
                 #update count for sequential file formats(assuming we use this)
                 count += 1
+
+    
