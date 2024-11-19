@@ -70,7 +70,7 @@ def extract_contours(inputImg):
                 if area > 100:
                     # Convert coordinates to the required format
                     # we can change this needbe to make it easier for drawing
-                    crdnts = [{'x': i[0], 'y': i[1]} for i in region]
+                    crdnts = [{i[0], i[1]} for i in region]
                     coords.append(crdnts)
 
     return coords, h, w
