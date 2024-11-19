@@ -36,7 +36,7 @@ def image_processing(inputImg):
 
     return threshMeanImg
 
-def contours(inputImg):
+def extract_contours(inputImg):
     """ 
     - The contours function will take in an already thresholded image
         and find the coordinates of the contours of that image.
@@ -68,6 +68,7 @@ def contours(inputImg):
                 area = cv2.contourArea(np.around(np.array([[pnt] for pnt in region])).astype(np.int32))
                 if area > 100:
                     # Convert coordinates to the required format
+                    # we can change this needbe to make it easier for drawing
                     crdnts = [{'x': i[0], 'y': i[1]} for i in region]
                     coords.append(crdnts)
 
@@ -87,4 +88,35 @@ def curtle_drawing(coordinates, h, w):
     
     """
 
-    #the video portion of the turtle drawing will likely als
+    #the video portion of the turtle drawing will likely also be in here i assume atm
+    #same with the file? if not itll be in main
+
+if __name__ == '__main__':
+    #inits needed 
+    #we want image to 
+    count = 1
+    #making sure the processed directories exist
+    # ^ this will have both gifs and end results of images
+    os.makedirs("processed", exist_ok=True)
+
+
+    with os.scandir("raw") as fileList:
+        #loop through all the files
+        for img in fileList:
+            #if image is a jpg or a png
+            if (img.name.endswith(".jpg") or img.name.endswith(".png")) and img.is_file():
+                #process image
+                processedImg = image_processing(img)
+                print(f"Image #{count} processed")
+                #extract contours for image
+                #coords should be a list of coordinates returned from extract_contours
+                coords, cH, cW = extract_contours(processedImg)
+                print(f"Image #{count}'s contours extracted")
+                #drawing function for image
+
+                #save the turtle img
+
+                #saving the gif of turtle drawing
+
+                #update count for sequential file formats(assuming we use this)
+                count += 1
