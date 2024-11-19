@@ -100,15 +100,22 @@ def curtle_drawing(coordinates, h, w):
     # making pencil
     pencil = t.Turtle()
     pencil.speed(0)
-    pencil.penup()
+    #pencil.penup()
     pencil.color("white")
-    pencil.pensize(2)
+    pencil.pensize(10)
 
     colors = []
 
     # start draw
-    for spot in coordinates:
+    for pic in coordinates:
+        for spot in pic:
+            # if just starting
+            #print(spot)
+            if pic.index(spot) == 0:
+                pencil.goto(spot)
+                pencil.pendown()
 
+            pencil.goto(spot)
     t.done()
     
 
