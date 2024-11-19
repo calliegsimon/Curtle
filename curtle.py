@@ -24,6 +24,7 @@ def image_processing(inputImg):
     4. find the contours 
     5. return the coordinates and hierarchy of the contours
     """
+    inputImg = cv2.imread(inputImg)
     #converting our input image to grayscale
     grayImg = cv2.cvtColor(inputImg, cv2.COLOR_BGR2GRAY)
 
@@ -90,6 +91,23 @@ def curtle_drawing(coordinates, h, w):
 
     #the video portion of the turtle drawing will likely also be in here i assume atm
     #same with the file? if not itll be in main
+    
+    # make canvas
+    canvas = t.Screen()
+    canvas.setup(h,w)
+    canvas.bgcolor()
+
+    # making pencil
+    pencil = t.Turtle()
+    pencil.speed(0)
+    pencil.penup()
+    pencil.color("white")
+    pencil.pensize(2)
+
+    colors = []
+
+    
+
 
 if __name__ == '__main__':
     #inits needed 
