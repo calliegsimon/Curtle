@@ -70,7 +70,7 @@ def extract_contours(inputImg):
                 if area > 100:
                     # Convert coordinates to the required format
                     # we can change this needbe to make it easier for drawing
-                    crdnts = [{i[0], i[1]} for i in region]
+                    crdnts = [[i[0], i[1]] for i in region]
                     coords.append(crdnts)
 
     return coords, h, w
@@ -103,33 +103,30 @@ def curtle_drawing(coordinates, h, w):
     # making pencil
     pencil = t.Turtle()
     pencil.speed(0)
-    pencil.pensize(.5)
-    
-    canvas.tracer(0)
+    pencil.pensize(1)
+    pencil.penup()
+    #canvas.tracer(0)
 
     for line in coordinates:
-        print(line)
-        if(len(line[0]) == 1):
-            print(spot)
-            pencil.penup()
-            spot.add(0)
-            #print(spot)
-        else:
-            pencil.penup()
-            pencil.goto(line[0])
-            pencil.pendown()
-            pencil.color(random.choice(colors))
-        canvas.update()
+        
+        temp = line[0]
+        temp[1] = h - temp[1]
+        pencil.goto(temp)
+        pencil.color(random.choice(colors))
 
         # start draw
         for spot in line:
-            if(len(spot) == 1):
-                print(spot)
-                pencil.penup()
-                spot.add(0)
-                #print(spot)
-            else:
-                pencil.goto(spot)
+            pencil.pendown()
+            if spot == line[0]:
+                spot[1] = h - spot[1]
+            
+            spot[1] = h - spot[1]
+            print(spot)
+            pencil.goto(spot)
+        print ("endline")
+        canvas.update()
+        pencil.penup()
+    t.done()
 
     canvas.update()
     t.done()
