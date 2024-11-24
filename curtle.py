@@ -121,15 +121,14 @@ def curtle_drawing(coordinates, h, w):
                 spot[1] = h - spot[1]
             
             spot[1] = h - spot[1]
-            print(spot)
+            #print(spot)
             pencil.goto(spot)
-        print ("endline")
+        #print ("endline")
         canvas.update()
         pencil.penup()
-    t.done()
 
     canvas.update()
-    t.done()
+    canvas.exitoncick()
 
 
 
