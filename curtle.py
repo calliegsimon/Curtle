@@ -127,6 +127,7 @@ def curtle_drawing(coordinates, h, w):
         pencil.penup()
     canvas.tracer(1)
     canvas.update()
+    input("Press enter to continue: ")
 
 
 
