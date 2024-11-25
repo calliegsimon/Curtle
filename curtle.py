@@ -105,7 +105,7 @@ def curtle_drawing(coordinates, h, w):
     pencil.speed(0)
     pencil.pensize(1)
     pencil.penup()
-    #canvas.tracer(0)
+    canvas.tracer(0)
 
     for line in coordinates:
         
@@ -121,34 +121,13 @@ def curtle_drawing(coordinates, h, w):
                 spot[1] = h - spot[1]
             
             spot[1] = h - spot[1]
-            #print(spot)
             pencil.goto(spot)
         #print ("endline")
         canvas.update()
         pencil.penup()
-    #canvas.tracer(1)
+    canvas.tracer(1)
     canvas.update()
 
-    canvas.onclick(screen)
-    '''
-    canvas.onscreenclick(screen)
-    canvas.listen()
-    canvas.onscreenclick(None)
-    canvas.mainloop()
-    #t.exitonclick()
-    
-    global click 
-    click = 0
-    canvas.onscreenclick(screen())
-    canvas.listen()
-    while click == 0:
-        canvas.delay(1000)
-        print("gell")
-    canvas.onscreenclick(None)
-    '''
-def screen():
-    global click 
-    click = 1
 
 
 if __name__ == '__main__':
