@@ -105,7 +105,7 @@ def curtle_drawing(coordinates, h, w):
     pencil.speed(0)
     pencil.pensize(1)
     pencil.penup()
-    canvas.tracer(0)
+    #canvas.tracer(0)
 
     for line in coordinates:
         
@@ -126,7 +126,7 @@ def curtle_drawing(coordinates, h, w):
         #print ("endline")
         canvas.update()
         pencil.penup()
-    canvas.tracer(1)
+    #canvas.tracer(1)
     canvas.update()
 
     canvas.onclick(screen)
