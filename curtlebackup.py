@@ -92,7 +92,8 @@ def curtle_drawing(coordinates, h, w):
     #the video portion of the turtle drawing will likely also be in here i assume atm
     #same with the file? if not itll be in main
 
-    colors = ["white","red", "yellow", "orange"]
+    colors = ["white","red", "orange", "#B0578D","#3E001F","#7A316F","#624E88","#6A1E55","#C65BCF",
+            "#91D18B", "#243D25", "#5F7464"]
     
     # make canvas
     canvas = t.Screen()
