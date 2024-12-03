@@ -29,6 +29,8 @@
 
 ## Further Work and Improvements:
 1. In regards to possible future work on Curtle, we would like to find a way to apply Canny Edge Detection so that we can compare our current results to what a Canny implementation's results would look like.
+2. Implementing arg parse so that we can run the code on individual images instead of a batch
+3. potentially run for videos.
 
 ## Errors and How to Handle Them:
 - If you recieve an error "OSError: Unable to locate Ghostscript on paths" you should be able to solve it by doing the following:
