@@ -98,6 +98,8 @@ def curtle_drawing(coordinates, h, w):
     # make canvas
     canvas = t.Screen()
     canvas.mode("world")
+    #canvas.setup(w, h, startx = 10, starty = -10) makes canvas size the size of picture
+                                                 # NOT WORKING CORRECTLY, works for first picture but a hit or miss for the rest
     canvas.setworldcoordinates(0,0,w,h)
     canvas.bgcolor("white")
 
@@ -128,7 +130,7 @@ def curtle_drawing(coordinates, h, w):
         pencil.penup()
     canvas.tracer(1)
     canvas.update()
-    input("Press enter to continue: ")
+    temp = input("Press enter to continue: ")
 
 
 
